@@ -398,15 +398,10 @@ ajv@^8.0.1:
     require-from-string "^2.0.2"
     uri-js "^4.2.2"
 
-angry-pixel@^1.0.4:
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/angry-pixel/-/angry-pixel-1.0.4.tgz#b85228872f331edda96b51d140d1fd14f6e497bf"
-  integrity sha512-m6rDVFXLeMxavpkVm2yKcE/0MgoXe6QHM1qVGWfsTs1yz1cI54lBKhMUetwkPxrCwq/eOrtk+sz7IiuvAjHFfg==
-  dependencies:
-    gl-matrix "^3.3.0"
-
-"angry-pixel@file:../angry-pixel-engine":
+angry-pixel@^1.0.5:
   version "1.0.5"
+  resolved "https://registry.yarnpkg.com/angry-pixel/-/angry-pixel-1.0.5.tgz#5b5bb798bce4b9419ed7b6b816bc217e95938141"
+  integrity sha512-mpu/K5d3F/Mqtwo1qQ4HG9Le+hwqb6pi21w/i7luwL9mB5sDAvKZ91dTaZg8a4Zlho9k9SW3FUt9kGAtqpjuvA==
   dependencies:
     gl-matrix "^3.3.0"
 
