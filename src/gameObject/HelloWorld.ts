@@ -1,4 +1,5 @@
 import { GameObject, TextRenderer } from "angry-pixel";
+import { ColorChanger } from "../component/ColorChanger";
 
 export class HelloWorld extends GameObject {
     constructor() {
@@ -19,5 +20,7 @@ export class HelloWorld extends GameObject {
                     lineSeparation: 4,
                 })
         );
+
+        this.addComponent(() => new ColorChanger(["#000000", "#ff0000", "#00ff00", "#0000ff", "#ffffff"], 1));
     }
 }
