@@ -15,18 +15,10 @@ export class ColorChanger extends Component {
 
     protected update(): void {
         if (this.timer >= this.period) {
-            this.textRenderer.color = this.getColor();
+            this.textRenderer.color = this.colors[random(0, this.colors.length - 1)];
             this.timer = 0;
         }
 
         this.timer += TimeManager.deltaTime;
-    }
-
-    private getColor(): string {
-        let color = random(0, this.colors.length - 1);
-        while (this.lastColor === color) {
-            color = random(0, this.colors.length - 1);
-        }
-        return this.colors[color];
     }
 }
