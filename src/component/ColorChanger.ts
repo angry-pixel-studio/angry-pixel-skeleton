@@ -1,16 +1,15 @@
-import { Component, random, TextRenderer, TimeManager, TYPE_TEXT_RENDERER } from "angry-pixel";
+import { Component, ComponentTypes, random, TextRenderer, TimeManager } from "angry-pixel";
 
 export class ColorChanger extends Component {
     private textRenderer: TextRenderer;
     private timer: number = 0;
-    private lastColor: number = 0;
 
     constructor(private colors: string[], private period: number) {
         super();
     }
 
     protected start(): void {
-        this.textRenderer = this.getComponentByType<TextRenderer>(TYPE_TEXT_RENDERER) as TextRenderer;
+        this.textRenderer = this.getComponentByType<TextRenderer>(ComponentTypes.TextRenderer) as TextRenderer;
     }
 
     protected update(): void {
