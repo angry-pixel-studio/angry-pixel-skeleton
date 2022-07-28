@@ -19,7 +19,7 @@ const config: GameConfig = {
 const game = new Game(config);
 
 // Add a scene
-game.addScene("Scene00", () => new Scene00());
+game.addScene(Scene00, "Scene00");
 
 // Run the game
 game.run();
