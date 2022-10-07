@@ -20,6 +20,10 @@ module.exports = {
         filename: "bundle.js",
     },
     devServer: {
-        contentBase: "./dist",
+        static: {
+            directory: path.join(__dirname, "dist"),
+        },
+        compress: false,
+        port: 8080,
     },
 };
