@@ -1,17 +1,16 @@
-import { GameObject, TextRenderer } from "angry-pixel";
+import { GameObject, TextRenderer, TextRendererOptions } from "angry-pixel";
 import { ColorChanger } from "../component/ColorChanger";
 
 export class HelloWorld extends GameObject {
     protected init(): void {
         this.layer = "Text";
 
-        this.addComponent(TextRenderer, {
+        this.addComponent<TextRenderer, TextRendererOptions>(TextRenderer, {
             width: 640,
             height: 320,
             color: "#FFFFFF",
             text: "Hello world",
-            fontFamily: "PressStart2P-Regular",
-            fontUrl: "font/PressStart2P-Regular.ttf",
+            font: "PressStart2P-Regular",
             fontSize: 16,
             lineSeparation: 4,
         });
