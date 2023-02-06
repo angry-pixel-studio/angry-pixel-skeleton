@@ -1,5 +1,10 @@
 import { Component, randomInt, TextRenderer, TimeManager } from "angry-pixel";
 
+export interface ColorChangerOptions {
+    color: string[];
+    period: number;
+}
+
 export class ColorChanger extends Component {
     private textRenderer: TextRenderer;
     private timer: number = 0;
@@ -7,7 +12,7 @@ export class ColorChanger extends Component {
     private colors: string[];
     private period: number;
 
-    protected init({ color, period }: { color: string[]; period: number }): void {
+    protected init({ color, period }: ColorChangerOptions): void {
         this.colors = color;
         this.period = period;
     }

@@ -1,4 +1,4 @@
-import { Game, GameConfig, Vector2, CollisionMethods } from "angry-pixel";
+import { Game, GameConfig } from "angry-pixel";
 import { LoadAssets } from "./scene/LoadAssets";
 import { Scene00 } from "./scene/Scene00";
 
