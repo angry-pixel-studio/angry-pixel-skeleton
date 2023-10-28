@@ -1,9 +1,10 @@
 import { Scene } from "angry-pixel";
 import { HelloWorld } from "../gameObject/HelloWorld";
+import { LAYERS } from "../config/layers";
 
-export class Scene00 extends Scene {
+export class MainScene extends Scene {
     protected init(): void {
-        this.gameCamera.layers = ["Text"];
+        this.gameCamera.layers = [LAYERS.Text];
 
         this.addGameObject(HelloWorld);
     }

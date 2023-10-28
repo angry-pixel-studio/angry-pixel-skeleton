@@ -1,13 +1,17 @@
-import { AssetManager, Scene, SceneManager } from "angry-pixel";
+import { Scene } from "angry-pixel";
+import { ASSETS } from "../config/assets";
 
 export class LoadAssets extends Scene {
     protected init(): void {
-        AssetManager.loadFont("PressStart2P-Regular", "font/PressStart2P-Regular.ttf");
+        Object.values(ASSETS.fonts).forEach((data) => this.assetManager.loadFont(data.name, data.url));
+        // Object.values(ASSETS.images).forEach((filename) => this.assetManager.loadImage(filename));
+        // Object.values(ASSETS.audio).forEach((filename) => this.assetManager.loadAudio(filename));
+        // Object.values(ASSETS.video).forEach((filename) => this.assetManager.loadVideo(filename));
     }
 
     protected update(): void {
-        if (AssetManager.getAssetsLoaded()) {
-            SceneManager.loadScene("Scene00");
+        if (this.assetManager.getAssetsLoaded()) {
+            this.sceneManager.loadScene("MainScene");
         }
     }
 }

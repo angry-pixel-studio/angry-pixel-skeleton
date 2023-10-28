@@ -1,22 +1,24 @@
-import { Game, GameConfig } from "angry-pixel";
+import { CollisionMatrix, Game, GameConfig } from "angry-pixel";
 import { LoadAssets } from "./scene/LoadAssets";
-import { Scene00 } from "./scene/Scene00";
-
-const containerElement = document.getElementById("app");
+import { MainScene } from "./scene/MainScene";
+import { PARAMETERS } from "./config/parameters";
 
 const config: GameConfig = {
-    containerNode: containerElement,
-    gameWidth: 1280,
-    gameHeight: 720,
+    containerNode: document.getElementById("app"),
+    gameWidth: 1920,
+    gameHeight: 1080,
     canvasColor: "#00D9D9",
+    collisions: {
+        collisionMatrix: PARAMETERS.collisionMatrix as CollisionMatrix,
+    },
 };
 
 // Create the Game
 const game = new Game(config);
 
-// Add a scene
+// Add scenes
 game.addScene(LoadAssets, "LoadAssets");
-game.addScene(Scene00, "Scene00");
+game.addScene(MainScene, "MainScene");
 
 // Run the game
 game.run();

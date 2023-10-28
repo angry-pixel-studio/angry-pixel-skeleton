@@ -1,4 +1,4 @@
-import { Component, randomInt, TextRenderer, TimeManager } from "angry-pixel";
+import { Component, randomInt, TextRenderer } from "angry-pixel";
 
 export interface ColorChangerOptions {
     color: string[];
@@ -27,6 +27,6 @@ export class ColorChanger extends Component {
             this.timer = 0;
         }
 
-        this.timer += TimeManager.deltaTime;
+        this.timer += this.timeManager.deltaTime;
     }
 }
