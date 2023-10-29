@@ -1,8 +1,8 @@
 export const ASSETS = {
-    fonts: {
-        main: { name: "PressStart2P-Regular", url: "font/PressStart2P-Regular.ttf" },
+    images: {
+        logo: "image/logo.png",
     },
-    images: {},
+    fonts: {},
     video: {},
     audio: {},
 };

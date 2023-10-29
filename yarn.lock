@@ -497,10 +497,10 @@ angry-pixel-math@^1.0.2:
   resolved "https://registry.yarnpkg.com/angry-pixel-math/-/angry-pixel-math-1.0.2.tgz#707b73fe8401262e1328c99c904d660d9ef2080f"
   integrity sha512-btX6ayaWn4QgqPSJvWSTCOzD1W5wEHEomy6szUQ06zOJe/JefjPHlrNzMdcPlPCDP02az1Noe0mpZ041gehNzA==
 
-angry-pixel@^1.2.2:
-  version "1.2.2"
-  resolved "https://registry.yarnpkg.com/angry-pixel/-/angry-pixel-1.2.2.tgz#c2d0abaea2fe27bbe2f561c3c8036122850ccd32"
-  integrity sha512-wL+HMKUd+b+SNUSICay4ectfbWCwV3rWF9L5Q02iKaI1CsF4t3zzq+kNvQs/ScJdPRcu3g4ZOtcApG56ryBKAw==
+angry-pixel@^1.2.3:
+  version "1.2.3"
+  resolved "https://registry.yarnpkg.com/angry-pixel/-/angry-pixel-1.2.3.tgz#69e17f117514776a89377102299ae7bdf513a8f6"
+  integrity sha512-r+hvv1BvLJQRUEcNO0L2ef4S195KxkRRa1LM2WD4W2PbbV7uGs++BHg9tVfDIJtMr291ligeR9gwZd2c+XfhWg==
   dependencies:
     angry-pixel-2d-physics "^1.0.1"
     angry-pixel-2d-renderer "^1.0.6"

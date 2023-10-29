@@ -1,7 +1,7 @@
 import { CollisionMatrix, Game, GameConfig } from "angry-pixel";
-import { LoadAssets } from "./scene/LoadAssets";
-import { MainScene } from "./scene/MainScene";
 import { PARAMETERS } from "./config/parameters";
+import { MainScene } from "./scene/MainScene";
+import { LoadAssets } from "./scene/LoadAssets";
 
 const config: GameConfig = {
     containerNode: document.getElementById("app"),
@@ -16,8 +16,8 @@ const config: GameConfig = {
 // Create the Game
 const game = new Game(config);
 
-// Add scenes
-game.addScene(LoadAssets, "LoadAssets");
+// Add scene
+game.addScene(LoadAssets, "LoadAssets", undefined, true);
 game.addScene(MainScene, "MainScene");
 
 // Run the game
