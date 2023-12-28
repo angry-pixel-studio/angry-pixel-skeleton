@@ -7,6 +7,43 @@
   resolved "https://registry.yarnpkg.com/@aashutoshrathi/word-wrap/-/word-wrap-1.2.6.tgz#bd9154aec9983f77b3a034ecaa015c2e4201f6cf"
   integrity sha512-1Yjs2SvM8TflER/OD3cOjhWWOZb58A2t7wpE2S9XfBYTiIl+XFhQG2bjy4Pu1I+EAlCNUzRDYDdFwFYUKvXcIA==
 
+"@angry-pixel/2d-physics@1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@angry-pixel/2d-physics/-/2d-physics-1.0.1.tgz#49de2d740d7250a56de8d91a3afde13be20d6d40"
+  integrity sha512-VDYAPzg0+KTcRwfuw7G/cimuZQ+AcWQZ971OciO9FI/wLGjueNen9FhwshCf+7Nk7Lex9UCFkqeIIf1FhbF6bA==
+  dependencies:
+    "@angry-pixel/math" "1.0.1"
+
+"@angry-pixel/2d-renderer@1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@angry-pixel/2d-renderer/-/2d-renderer-1.0.1.tgz#3de8816995afc5d236454b324dfb821891600aea"
+  integrity sha512-Lrm9Lh15F31uvE84KSA747C2p182eUcvm8FuL3APfdhKKXyulCd152U7gD2qWi1+QwDYBK39l/w4v+99Evck+w==
+  dependencies:
+    "@angry-pixel/math" "1.0.1"
+    gl-matrix "^3.4.3"
+
+"@angry-pixel/core@1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@angry-pixel/core/-/core-1.0.1.tgz#d05331cc19671ec0b554bb03f1ede2976ed156c3"
+  integrity sha512-q27GzYI6Y2O5dbNcwWSFJ8asQYk+2S97Gp2/C34hMs7wSLa5m1pR0YTCu+6h/Q1l9ar63+tygQnE9slM9kb32Q==
+  dependencies:
+    "@angry-pixel/2d-physics" "1.0.1"
+    "@angry-pixel/2d-renderer" "1.0.1"
+    "@angry-pixel/input" "1.0.1"
+    "@angry-pixel/math" "1.0.1"
+
+"@angry-pixel/input@1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@angry-pixel/input/-/input-1.0.1.tgz#7f55443494a4e2e01ea064841a6dc1fa17d6e804"
+  integrity sha512-+dVJx2yekoU7dh1FjXtqn43VmJMaL46EFT/vEuCy6kUYgsImdUUjcZ7uSRZnyWILBOa6OQYDkZ1diXcq6xuo6w==
+  dependencies:
+    "@angry-pixel/math" "1.0.1"
+
+"@angry-pixel/math@1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@angry-pixel/math/-/math-1.0.1.tgz#50d6d77465ec092498e9afb5e6c9f9f1c513c71b"
+  integrity sha512-PGU7oXmikqhTu7NwK7+nn07TIYJJ4V5WhADKrr2l0qJJaXRgjKzgyqMp8Ym2s1+NnA+Y5Zn0puPTujPqhA8VcA==
+
 "@discoveryjs/json-ext@^0.5.0":
   version "0.5.5"
   resolved "https://registry.yarnpkg.com/@discoveryjs/json-ext/-/json-ext-0.5.5.tgz#9283c9ce5b289a3c4f61c12757469e59377f81f3"
@@ -477,34 +514,16 @@ ajv@^6.1.0, ajv@^6.12.4, ajv@^6.12.5:
     json-schema-traverse "^0.4.1"
     uri-js "^4.2.2"
 
-angry-pixel-2d-physics@^1.0.2:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/angry-pixel-2d-physics/-/angry-pixel-2d-physics-1.0.2.tgz#09d2a7b5c35e98a7d2d026a910cfb696750728b8"
-  integrity sha512-JRrYwtzMcAlK0bMq/fi2kZv3XS/YMkFiH3q9uFjOv6frNPPOMI8rkmSPncmWR955TBSG9xyk/s6eR+XiTVCkJg==
+angry-pixel@^1.2.8:
+  version "1.2.8"
+  resolved "https://registry.yarnpkg.com/angry-pixel/-/angry-pixel-1.2.8.tgz#0baf0dcaea9161a594cf83b0f81c8ae6c910c37e"
+  integrity sha512-EXWErtntdFiaKqiT4R8bAkJwXIWnOumhy9fjJ5nXnqCkQxH0aQVId7sAOZklgqzotWeeA0faFlo12vl0kvVf2w==
   dependencies:
-    angry-pixel-math "^1.0.2"
-
-angry-pixel-2d-renderer@^1.0.6:
-  version "1.0.6"
-  resolved "https://registry.yarnpkg.com/angry-pixel-2d-renderer/-/angry-pixel-2d-renderer-1.0.6.tgz#812e3a2f415025d9e1a9d38a1d50f149532a0c53"
-  integrity sha512-OprhMgSj5rlUxbdEBqeR4htWbUoJVT3FyzrJexrzIFk6kGBv3YAwmBOCXx4l/4JQEueBM7ivZPX1z5pTzWvwmg==
-  dependencies:
-    angry-pixel-math "^1.0.2"
-    gl-matrix "^3.4.3"
-
-angry-pixel-math@^1.0.2:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/angry-pixel-math/-/angry-pixel-math-1.0.2.tgz#707b73fe8401262e1328c99c904d660d9ef2080f"
-  integrity sha512-btX6ayaWn4QgqPSJvWSTCOzD1W5wEHEomy6szUQ06zOJe/JefjPHlrNzMdcPlPCDP02az1Noe0mpZ041gehNzA==
-
-angry-pixel@^1.2.5:
-  version "1.2.5"
-  resolved "https://registry.yarnpkg.com/angry-pixel/-/angry-pixel-1.2.5.tgz#ebf9823b7e5655d19567974f29a896d8603ef17a"
-  integrity sha512-CTCK8qjDifoldNW/xSesaq2/dmvcIcBhKab6CbAAyXdoorJf+TKowEEFvzvKykXz0xvIgMd/qRb9ajmSxcywLA==
-  dependencies:
-    angry-pixel-2d-physics "^1.0.2"
-    angry-pixel-2d-renderer "^1.0.6"
-    angry-pixel-math "^1.0.2"
+    "@angry-pixel/2d-physics" "1.0.1"
+    "@angry-pixel/2d-renderer" "1.0.1"
+    "@angry-pixel/core" "1.0.1"
+    "@angry-pixel/input" "1.0.1"
+    "@angry-pixel/math" "1.0.1"
 
 ansi-colors@^3.0.0:
   version "3.2.4"
