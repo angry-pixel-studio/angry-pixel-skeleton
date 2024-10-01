@@ -1,0 +1,25 @@
+{
+    "name": "angry-pixel-skeleton",
+    "version": "1.0.0",
+    "description": "Angry Pixel Engine project skeleton",
+    "author": "Mauro Cristy <maurocristy@gmail.com>",
+    "license": "MIT",
+    "scripts": {
+        "start": "webpack serve --mode development",
+        "build": "webpack --mode production"
+    },
+    "devDependencies": {
+        "eslint": "^9.11.1",
+        "prettier": "^3.3.3",
+        "ts-loader": "^9.5.1",
+        "tsconfig-paths-webpack-plugin": "^4.1.0",
+        "typescript": "^5.6.2",
+        "typescript-eslint": "^8.8.0",
+        "webpack": "^5.95.0",
+        "webpack-cli": "^5.1.4",
+        "webpack-dev-server": "^5.1.0"
+    },
+    "dependencies": {
+        "angry-pixel": "file:../angry-pixel-engine/bundles/angry-pixel"
+    }
+}
