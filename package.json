@@ -20,6 +20,6 @@
         "webpack-dev-server": "^5.1.0"
     },
     "dependencies": {
-        "angry-pixel": "file:../angry-pixel-engine/bundles/angry-pixel"
+        "angry-pixel": "^2.0.0"
     }
 }

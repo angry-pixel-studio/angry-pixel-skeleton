@@ -1,24 +1,22 @@
 import { MoveAndBounce } from "@component/MoveAndBounce";
-import { EntityManager, inject, Symbols, System, TimeManager, Transform } from "angry-pixel";
+import { GameSystem, Transform } from "angry-pixel";
 
-export class MoveAndBounceSystem implements System {
-    @inject(Symbols.EntityManager) private readonly entityManager: EntityManager;
-    @inject(Symbols.TimeManager) private readonly timeManager: TimeManager;
-
+export class MoveAndBounceSystem extends GameSystem {
     public onUpdate(): void {
-        this.entityManager.search(MoveAndBounce).forEach(({ component: moveAndBounce, entity }) => {
+        this.entityManager.search(MoveAndBounce).forEach(({ component, entity }) => {
             const transform = this.entityManager.getComponent(entity, Transform);
+            const { boundaries, direction, speed } = component;
 
-            if (transform.position.y >= 476 || transform.position.y <= -476) {
-                moveAndBounce.direction.y *= -1;
+            if (transform.position.y >= boundaries[0] || transform.position.y <= boundaries[1]) {
+                direction.y *= -1;
             }
 
-            if (transform.position.x >= 896 || transform.position.x <= -896) {
-                moveAndBounce.direction.x *= -1;
+            if (transform.position.x >= boundaries[2] || transform.position.x <= boundaries[3]) {
+                direction.x *= -1;
             }
 
-            transform.position.x += moveAndBounce.direction.x * moveAndBounce.speed * this.timeManager.deltaTime;
-            transform.position.y += moveAndBounce.direction.y * moveAndBounce.speed * this.timeManager.deltaTime;
+            transform.position.x += direction.x * speed * this.timeManager.deltaTime;
+            transform.position.y += direction.y * speed * this.timeManager.deltaTime;
         });
     }
 }
