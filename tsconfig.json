@@ -10,7 +10,7 @@
         "experimentalDecorators": true,
         "rootDir": "src",
         "paths": {
-            "@archetype/*": ["./src/archetype/*"],
+            "@factory/*": ["./src/factory/*"],
             "@component/*": ["./src/component/*"],
             "@config/*": ["./src/config/*"],
             "@scene/*": ["./src/scene/*"],

@@ -1,5 +1,5 @@
-import { cameraArchetype } from "@archetype/CameraArchetype";
-import { logoArchetype } from "@archetype/LogoArchetype";
+import { cameraFactory } from "@factory/CameraFactory";
+import { logoFactory } from "@factory/LogoFactory";
 import { ASSETS } from "@config/assets";
 import { RENDER_LAYERS } from "@config/layers";
 import { MoveAndBounceSystem } from "@system/MoveAndBounceSystem";
@@ -17,8 +17,8 @@ export class MainScene extends Scene {
 
     public setup(): void {
         // setup camera
-        this.entityManager.createEntity(cameraArchetype([RENDER_LAYERS.Logo]));
+        this.entityManager.createEntity(cameraFactory([RENDER_LAYERS.Logo]));
         // setup logo
-        this.entityManager.createEntity(logoArchetype(this.assetManager));
+        this.entityManager.createEntity(logoFactory(this.assetManager));
     }
 }

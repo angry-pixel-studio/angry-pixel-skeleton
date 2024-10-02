@@ -3,7 +3,7 @@ import { ASSETS } from "@config/assets";
 import { RENDER_LAYERS } from "@config/layers";
 import { AssetManager, Component, SpriteRenderer, Transform } from "angry-pixel";
 
-export const logoArchetype = (assetManager: AssetManager): Component[] => [
+export const logoFactory = (assetManager: AssetManager): Component[] => [
     Transform,
     new SpriteRenderer({
         layer: RENDER_LAYERS.Logo,

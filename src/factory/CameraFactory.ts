@@ -1,6 +1,6 @@
 import { Camera, Component, Transform, Vector2 } from "angry-pixel";
 
-export const cameraArchetype = (
+export const cameraFactory = (
     layers: string[],
     position: Vector2 = new Vector2(),
     depth: number = 0,
