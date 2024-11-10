@@ -1,5 +1,5 @@
 import { GameConfig } from "angry-pixel";
-import { collisionMatrix } from "./collisionMatrix";
+import { COLLISION_MATRIX } from "./collisionMatrix";
 
 const params = new URLSearchParams(window.location.search);
 
@@ -9,7 +9,7 @@ export const gameConfig: GameConfig = {
     height: 1080,
     canvasColor: "#00D9D9",
     collisions: {
-        collisionMatrix,
+        collisionMatrix: COLLISION_MATRIX,
     },
     debugEnabled: Boolean(Number(params.get("debug"))),
 };

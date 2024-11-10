@@ -614,10 +614,10 @@ ajv@^8.0.0, ajv@^8.9.0:
     json-schema-traverse "^1.0.0"
     require-from-string "^2.0.2"
 
-angry-pixel@^2.0.5:
-  version "2.0.5"
-  resolved "https://registry.yarnpkg.com/angry-pixel/-/angry-pixel-2.0.5.tgz#0ecb23e415daa366532fbdcb5c19d0f32acfbe19"
-  integrity sha512-/BkRuSOlfBxYWhlq52tyHg8evo9fo1Jl3DaWQBpZtcyrf3q/XV5R+Q10y9p9klzM64nOowyI9Ie16luyclglmw==
+angry-pixel@^2.0.6:
+  version "2.0.6"
+  resolved "https://registry.yarnpkg.com/angry-pixel/-/angry-pixel-2.0.6.tgz#bd5cc54afa2a6c5e13f8ac3d913b5ae7c7e687a3"
+  integrity sha512-63K3m6OjCUW0F1Lr6FeTWSGDW2cf1mL7v5f1tg8luCvZ3MCOzouBA2r6mE5amyyGlOtRjIyeUusMYIn44VgI6A==
 
 ansi-html-community@^0.0.8:
   version "0.0.8"

@@ -43,7 +43,7 @@ yarn install
 yarn start
 ```
 
-The dev environment will run in http://localhost:8080/
+The dev environment will run in http://localhost:3000/
 
 ## Build
 
@@ -55,4 +55,4 @@ yarn run build
 
 ## Share your game
 
-Once built, you will have all the game data inside the dist folder, which can be used as a standalone website, or embedded inside an iframe, or shared on sites like [itch.io](itch.io) or [gamejolt.com](gamejolt.com) (in general these sites require the game folder to be uploaded as a .zip file).
+Once built, you will have all the game data inside the `dist` folder, which can be used as a standalone website, or embedded inside an iframe, or shared on sites like [itch.io](itch.io) or [gamejolt.com](gamejolt.com) (in general these sites require the game folder to be uploaded as a .zip file).

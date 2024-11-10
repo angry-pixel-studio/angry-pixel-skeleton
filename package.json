@@ -24,6 +24,6 @@
         "webpack-dev-server": "^5.1.0"
     },
     "dependencies": {
-        "angry-pixel": "^2.0.5"
+        "angry-pixel": "^2.0.6"
     }
 }
