@@ -2,7 +2,7 @@ import { MoveAndBounce } from "@component/MoveAndBounce";
 import { GameSystem, Transform } from "angry-pixel";
 
 export class MoveAndBounceSystem extends GameSystem {
-    public onUpdate(): void {
+    onUpdate(): void {
         this.entityManager.search(MoveAndBounce).forEach(({ component, entity }) => {
             const transform = this.entityManager.getComponent(entity, Transform);
             const { boundaries, direction, speed } = component;

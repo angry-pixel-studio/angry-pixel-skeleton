@@ -18,8 +18,22 @@ src:
     - index.ts: Entry point of the project, in this we instantiate the Game class.
 ```
 
-You can create new asset directories inside `dist` forder, for example, you can create an `audio` folder for the music and sound fx, or a `font` directory for the fonts.
-You can also create new layer directories inside the `src` folder, for example, if you are going to work with tilemaps, you can create a `tilemap` directory and put all your tilemap data files there.
+You can create new directories to store assets inside `dist` forder, for example, you can create an `audio` folder for the music and sound fx, or a `font` directory for the fonts.
+
+You can also create new directories inside the `src` folder, for example, if you are going to work with tilemaps, you can create a `tilemap` directory and put all your tilemap data files there.
+But don't forget to add the new directory to the `paths` property inside the `tsconfig.json`
+
+```
+{
+    "compilerOptions": {
+        ...
+        "paths": {
+            ...
+            "@tilemap/*": ["./src/tilemap/*"]
+        }
+    }
+}
+```
 
 ## Setup development environment
 
