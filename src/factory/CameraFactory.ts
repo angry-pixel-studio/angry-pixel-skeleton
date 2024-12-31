@@ -5,4 +5,5 @@ export const cameraFactory = (
     position: Vector2 = new Vector2(),
     depth: number = 0,
     zoom: number = 1,
-): Component[] => [new Transform({ position }), new Camera({ layers, zoom, depth })];
+    debug: boolean = true,
+): Component[] => [new Transform({ position }), new Camera({ layers, zoom, depth, debug })];

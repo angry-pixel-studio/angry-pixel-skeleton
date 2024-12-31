@@ -1,5 +1,12 @@
 import { MoveAndBounce } from "@component/MoveAndBounce";
-import { GameSystem, Transform } from "angry-pixel";
+import { GameSystem, randomInt, rgbToHex, Transform } from "angry-pixel";
+
+const randomColor = (): string =>
+    rgbToHex({
+        r: randomInt(0, 255),
+        g: randomInt(0, 255),
+        b: randomInt(0, 255),
+    });
 
 export class MoveAndBounceSystem extends GameSystem {
     onUpdate(): void {
@@ -9,10 +16,12 @@ export class MoveAndBounceSystem extends GameSystem {
 
             if (transform.position.y >= boundaries[0] || transform.position.y <= boundaries[1]) {
                 direction.y *= -1;
+                this.gameConfig.canvasColor = randomColor();
             }
 
             if (transform.position.x >= boundaries[2] || transform.position.x <= boundaries[3]) {
                 direction.x *= -1;
+                this.gameConfig.canvasColor = randomColor();
             }
 
             transform.position.x += direction.x * speed * this.timeManager.deltaTime;

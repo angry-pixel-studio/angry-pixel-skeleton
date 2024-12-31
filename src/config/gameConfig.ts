@@ -7,7 +7,7 @@ export const gameConfig: GameConfig = {
     containerNode: document.querySelector("#app"),
     width: 1920,
     height: 1080,
-    canvasColor: "#00D9D9",
+    canvasColor: "#D9D9D9",
     collisions: {
         collisionMatrix: COLLISION_MATRIX,
     },
