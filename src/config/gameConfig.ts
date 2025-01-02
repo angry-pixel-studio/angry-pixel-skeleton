@@ -11,5 +11,8 @@ export const gameConfig: GameConfig = {
     collisions: {
         collisionMatrix: COLLISION_MATRIX,
     },
-    debugEnabled: Boolean(Number(params.get("debug"))),
+    debug: {
+        colliders: Boolean(Number(params.get("debug"))),
+        mousePosition: Boolean(Number(params.get("debug"))),
+    },
 };
