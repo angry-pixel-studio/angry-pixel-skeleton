@@ -1,0 +1,48 @@
+{
+  "expo": {
+    "name": "Angry Pixel (WebView)",
+    "slug": "angry-pixel-multiplatform",
+    "version": "1.0.0",
+    "orientation": "default",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "dark",
+    "newArchEnabled": true,
+    "splash": {
+      "image": "./assets/icon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#000000"
+    },
+    "ios": {
+      "bundleIdentifier": "com.angrypixel.multiplatform",
+      "supportsTablet": true,
+      "infoPlist": {
+        "NSAppTransportSecurity": {
+          "NSAllowsArbitraryLoads": true,
+          "NSAllowsLocalNetworking": true
+        }
+      }
+    },
+    "android": {
+      "package": "com.angrypixel.multiplatform",
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/icon.png",
+        "backgroundColor": "#000000"
+      },
+      "usesCleartextTraffic": true,
+      "edgeToEdgeEnabled": true,
+      "predictiveBackGestureEnabled": false
+    },
+    "web": {
+      "favicon": "./assets/icon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "a694f470-942a-4a6b-9e4d-bc11c838c4c4"
+      }
+    },
+    "owner": "maurocristy",
+    "plugins": [
+      "expo-asset"
+    ]
+  }
+}

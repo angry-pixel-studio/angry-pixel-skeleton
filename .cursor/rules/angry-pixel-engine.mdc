@@ -1,0 +1,53 @@
+---
+description: Angry Pixel Engine 2D game engine and this project's structure
+alwaysApply: true
+---
+
+# Angry Pixel Engine – Project Context
+
+This project uses **Angry Pixel Engine** (TypeScript 2D game engine, ECS architecture). Docs: [angrypixel.gg/engine/docs](https://angrypixel.gg/engine/docs/) and [docs.angrypixel.gg](https://docs.angrypixel.gg/).
+
+## ECS Summary
+
+- **Entities**: IDs that group components. Created with `entityManager.createEntity(components[])` or `entityManager.createEntityFromArchetype(archetype)`.
+- **Components**: Data only (no logic). Use engine components (e.g. `Transform`, `SpriteRenderer`, `Camera`) or custom classes with properties. Pass instances or classes (engine instantiates classes if needed).
+- **Systems**: Logic that runs on entities. Extend `GameSystem`, implement `onUpdate()`, use `this.entityManager.search(ComponentClass)` and `this.entityManager.getComponent(entity, ComponentClass)`.
+
+## Three-Phase Game Loop
+
+1. **Game Logic** (60 FPS) – input, audio, animations, custom systems (default for user systems).
+2. **Physics** – collision, physics, `Transform` updates. Use `@gamePhysicsSystem()` decorator to run a system here.
+3. **Rendering** (VSync) – cameras and renderers. Use `@gamePreRenderSystem()` to run just before render.
+
+## Project Layout (skeleton)
+
+- `src/main.ts` – creates `Game(gameConfig)`, adds scenes, calls `game.start()`.
+- `src/config/` – `gameConfig.ts` (GameConfig), `assets.ts`, `layers.ts`, `collisionMatrix.ts`.
+- `src/scene/` – Scene classes override `loadAssets()`, `registerSystems()`, `createEntities()`.
+- `src/entity/` – entities as arrays of component instances (e.g. `[new Transform(), new SpriteRenderer({...})]`).
+- `src/component/` – custom component classes (data only).
+- `src/system/` – custom `GameSystem` subclasses.
+- `public/` – static assets (images, audio, etc.); paths in code are relative to `public` (e.g. `image/logo.png`).
+
+## Key Engine APIs
+
+- **Game**: `new Game(gameConfig)`, `game.addScene(SceneClass, name, setActive?)`, `game.start()`.
+- **Scene**: `loadAssets()` (e.g. `this.assetManager.loadImage(path)`), `registerSystems()` (`this.addSystem(SystemClass)`), `createEntities()` (`this.entityManager.createEntity(components)`).
+- **Entity components**: Pass array of component instances or classes. **Built-in components** (19 total): **General** — `Transform` (position, scale, rotation; parent-child), `AudioPlayer`, `Button` (Rectangle/Circumference, onClick/onPressed), `TiledWrapper` (Tiled map + layer). **Physics** — `BoxCollider`, `BallCollider`, `PolygonCollider` (convex), `EdgeCollider` (line segments; concave ok), `TilemapCollider` (needs TilemapRenderer), `RigidBody` (Dynamic/Kinematic/Static). **Rendering** — `Camera` (layers, zoom, depth, debug), `SpriteRenderer`, `TextRenderer`, `TilemapRenderer`, `MaskRenderer` (Rectangle/Circumference/Polygon), `DarknessRenderer` + `LightRenderer` (same layer), `VideoRenderer`, `Animator` (+ `Animation`). Each entity: one instance per component type. [Components overview](https://angrypixel.gg/engine/docs/04-02-components/); individual .md in [engine docs/en](https://github.com/angry-pixel-studio/angry-pixel-engine/tree/main/docs/docs/en). From `angry-pixel`: `Vector2`, `GameConfig`, `randomInt`, `rgbToHex`, etc.
+- **Systems**: `this.entityManager.search(Component)`, `this.entityManager.getComponent(entity, OtherComponent)`, `this.timeManager.deltaTime`, `this.gameConfig`. `search(Component)` returns `{ entity, component }`; use `component` directly and avoid calling `getComponent(entity, Component)` for the same type.
+- **Archetypes**: Reusable entity templates. `entityManager.createEntityFromArchetype({ components, enabled?, children? })`. Components can be instances or classes. Use `disableComponent(component)` for components that start disabled; enable later with `entityManager.enableComponent(entity, Component)`. Children are optional nested `{ components, enabled?, children? }`; parent-child `Transform` relationships are created automatically. Components are cloned per entity. See [Entities docs](https://angrypixel.gg/engine/docs/04-01-entities/).
+- **EntityManager (other)**: `createEntity()`, `setParent(child, parent)`, `disableEntity`/`enableEntity`, `search(Component, predicate?)`, `updateComponentData(entity, Component, fn)`, `removeEntity`/`removeComponent`, `getChildren`, `searchInChildren`.
+
+## Collisions
+
+- **CollisionRepository**: In systems, use `this.collisionRepository`. Methods: `findCollisionsForCollider(collider): Collision[]`, `findCollisionsForColliderAndLayer(collider, layer): Collision[]`, `findAll(): Collision[]`.
+- **Collision**: Each collision has `localEntity`, `localCollider`, `remoteEntity`, `remoteCollider`, and `resolution: CollisionResolution` with `penetration` (number) and `direction` (Vector2).
+- **When collisions are updated**: Collisions are updated in the **Physics** phase. Systems run in Game Logic by default, so when they read `collisionRepository` they see the **previous** frame's collision state.
+- **Collision matrix**: Only layer pairs listed in `gameConfig.collisions.collisionMatrix` produce collisions. Colliders use `layer` from `src/config/layers.ts` (e.g. `COLLISION_LAYERS.PlayerHurtBox`).
+
+## Conventions in This Repo
+
+- Entities are defined as exported arrays of components in `src/entity/` (e.g. `camera`, `logo`).
+- Assets and render/collision layers are centralized in `src/config/assets.ts` and `src/config/layers.ts`.
+- Use path aliases: `@config/`, `@scene/`, `@entity/`, `@component/`, `@system/`.
+- Component and system folders must match: a component in `src/component/<folder>/` has its system in `src/system/<folder>/` (e.g. `component/player/PlayerDirection.ts` → `system/player/PlayerDirectionSystem.ts`).

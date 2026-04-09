@@ -1,0 +1,46 @@
+{
+  "name": "@angry-pixel-multiplatform/desktop",
+  "private": true,
+  "version": "0.0.0",
+  "description": "Electron shell for Angry Pixel multiplatform skeleton",
+  "author": "Angry Pixel",
+  "main": "main.cjs",
+  "scripts": {
+    "dev": "electron .",
+    "start": "electron .",
+    "build": "electron-builder"
+  },
+  "build": {
+    "electronVersion": "35.7.5",
+    "appId": "com.angrypixel.multiplatform.skeleton",
+    "productName": "AngryPixelSkeleton",
+    "directories": {
+      "output": "out"
+    },
+    "icon": "build/icon.png",
+    "files": [
+      "main.cjs",
+      "package.json",
+      "build/icon.png",
+      {
+        "from": "../browser/dist",
+        "to": "renderer",
+        "filter": ["**/*"]
+      }
+    ],
+    "mac": {
+      "category": "public.app-category.games",
+      "target": ["dmg"]
+    },
+    "win": {
+      "target": ["nsis"]
+    },
+    "linux": {
+      "target": ["AppImage"]
+    }
+  },
+  "devDependencies": {
+    "electron": "^35.0.0",
+    "electron-builder": "^26.0.0"
+  }
+}

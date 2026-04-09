@@ -1,0 +1,13 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "paths": {
+      "@entity/*": ["./src/entity/*"],
+      "@component/*": ["./src/component/*"],
+      "@config/*": ["./src/config/*"],
+      "@scene/*": ["./src/scene/*"],
+      "@system/*": ["./src/system/*"]
+    }
+  },
+  "include": ["src"]
+}

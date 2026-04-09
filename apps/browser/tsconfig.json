@@ -1,0 +1,14 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "types": ["vite/client"],
+    "paths": {
+      "@config/*": ["../../packages/game/src/config/*"],
+      "@component/*": ["../../packages/game/src/component/*"],
+      "@entity/*": ["../../packages/game/src/entity/*"],
+      "@scene/*": ["../../packages/game/src/scene/*"],
+      "@system/*": ["../../packages/game/src/system/*"]
+    }
+  },
+  "include": ["src"]
+}
