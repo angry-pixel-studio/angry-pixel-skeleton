@@ -4,12 +4,12 @@ Monorepo for games built with [Angry Pixel Engine](https://github.com/angry-pixe
 
 ## Layout
 
-| Path | Role |
-|------|------|
-| `packages/game` | Scenes, systems, entities, config, `startGame()` — depends on `angry-pixel` |
-| `apps/browser` | Vite app; serves `packages/game/public` as static assets |
-| `apps/desktop` | Electron; dev loads `http://localhost:3000`, production loads `apps/browser/dist` |
-| `apps/mobile` | Expo; **release** loads embedded `apps/browser/dist` (zipped); **dev** uses the Vite URL |
+| Path            | Role                                                                                     |
+| --------------- | ---------------------------------------------------------------------------------------- |
+| `packages/game` | Scenes, systems, entities, config, `startGame()` — depends on `angry-pixel`              |
+| `apps/browser`  | Vite app; serves `packages/game/public` as static assets                                 |
+| `apps/desktop`  | Electron; dev loads `http://localhost:3000`, production loads `apps/browser/dist`        |
+| `apps/mobile`   | Expo; **release** loads embedded `apps/browser/dist` (zipped); **dev** uses the Vite URL |
 
 ## Setup
 
@@ -23,7 +23,7 @@ npm install
 npm run dev:browser
 ```
 
-Open [http://localhost:3000](http://localhost:3000). Append `?debug=1` for collider / mouse debug overlays (same idea as the upstream [skeleton](https://github.com/angry-pixel-studio/angry-pixel-skeleton-ts)).
+Open [http://localhost:3000](http://localhost:3000). Append `?debug=1` for collider / mouse debug overlays (same idea as the upstream [skeleton](https://github.com/angry-pixel-studio/angry-pixel-app-skeleton-ts)).
 
 The dev server binds to all interfaces (`host: true`) so phones on your LAN can reach it.
 
@@ -37,11 +37,11 @@ Electron opens the Vite dev URL when the app is not packaged (`!app.isPackaged`)
 **Production-style check:** build the browser app, then point Electron at the `dist` folder (unpackaged runs default to the dev server, so set `ELECTRON_USE_DIST=1`). Vite uses `base: './'` so assets work under `file://`.
 
 ```bash
-npm run build -w @angry-pixel-multiplatform/browser
-ELECTRON_USE_DIST=1 npm run dev -w @angry-pixel-multiplatform/desktop
+npm run build -w @angry-pixel-app/browser
+ELECTRON_USE_DIST=1 npm run dev -w @angry-pixel-app/desktop
 ```
 
-On Windows (cmd): `set ELECTRON_USE_DIST=1&& npm run dev -w @angry-pixel-multiplatform/desktop`
+On Windows (cmd): `set ELECTRON_USE_DIST=1&& npm run dev -w @angry-pixel-app/desktop`
 
 ## Develop — mobile (WebView)
 
@@ -123,7 +123,7 @@ Builds the game + Vite app, then runs [electron-builder](https://www.electron.bu
 If the browser bundle is already built, you can run only the packager:
 
 ```bash
-npm run build -w @angry-pixel-multiplatform/desktop
+npm run build -w @angry-pixel-app/desktop
 ```
 
 **Icons:** The canonical app artwork is [`apps/mobile/assets/icon.png`](apps/mobile/assets/icon.png) (used for Expo icon, splash, adaptive icon, and web favicon via [`app.json`](apps/mobile/app.json)). After changing it, refresh the Electron copy with `npm run sync-desktop-icon` (Unix `cp`; copy the file manually on Windows). [`electron-builder`](https://www.electron.build/icons.html) reads [`apps/desktop/build/icon.png`](apps/desktop/build/icon.png) for `.app` / `.dmg` / Windows / Linux. On **macOS**, `BrowserWindow`’s `icon` option is ignored; the Dock uses the bundled asset (and in dev, `app.dock.setIcon` uses `build/icon.png`).

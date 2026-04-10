@@ -1,5 +1,5 @@
 {
-  "name": "@angry-pixel-multiplatform/browser",
+  "name": "@angry-pixel-app/browser",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -9,7 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@angry-pixel-multiplatform/game": "*"
+    "@angry-pixel-app/game": "*"
   },
   "devDependencies": {
     "@types/node": "^22.10.2",

@@ -19,7 +19,7 @@ const args = process.argv.slice(2);
 const skipBuild = args.includes('--skip-build');
 
 if (!skipBuild) {
-  execSync('npm run build -w @angry-pixel-multiplatform/game && npm run build -w @angry-pixel-multiplatform/browser', {
+  execSync('npm run build -w @angry-pixel-app/game && npm run build -w @angry-pixel-app/browser', {
     cwd: repoRoot,
     stdio: 'inherit',
   });

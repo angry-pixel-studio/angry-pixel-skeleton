@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "Angry Pixel (WebView)",
-    "slug": "angry-pixel-multiplatform",
+    "slug": "angry-pixel-app",
     "version": "1.0.0",
     "orientation": "default",
     "icon": "./assets/icon.png",
@@ -41,8 +41,6 @@
       }
     },
     "owner": "maurocristy",
-    "plugins": [
-      "expo-asset"
-    ]
+    "plugins": ["expo-asset"]
   }
 }

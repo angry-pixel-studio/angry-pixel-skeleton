@@ -1,5 +1,5 @@
 {
-  "name": "@angry-pixel-multiplatform/desktop",
+  "name": "@angry-pixel-app/desktop",
   "private": true,
   "version": "0.0.0",
   "description": "Electron shell for Angry Pixel multiplatform skeleton",
@@ -25,18 +25,26 @@
       {
         "from": "../browser/dist",
         "to": "renderer",
-        "filter": ["**/*"]
+        "filter": [
+          "**/*"
+        ]
       }
     ],
     "mac": {
       "category": "public.app-category.games",
-      "target": ["dmg"]
+      "target": [
+        "dmg"
+      ]
     },
     "win": {
-      "target": ["nsis"]
+      "target": [
+        "nsis"
+      ]
     },
     "linux": {
-      "target": ["AppImage"]
+      "target": [
+        "AppImage"
+      ]
     }
   },
   "devDependencies": {

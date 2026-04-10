@@ -1,5 +1,5 @@
 {
-  "name": "@angry-pixel-multiplatform/mobile",
+  "name": "@angry-pixel-app/mobile",
   "version": "0.0.0",
   "private": true,
   "main": "index.ts",

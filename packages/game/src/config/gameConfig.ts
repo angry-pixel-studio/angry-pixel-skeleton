@@ -7,10 +7,7 @@ export type GameDebugOptions = {
   textRendererBoundingBoxes?: boolean;
 };
 
-export function createGameConfig(options: {
-  container: HTMLElement;
-  debug?: GameDebugOptions;
-}): GameConfig {
+export function createGameConfig(options: { container: HTMLElement; debug?: GameDebugOptions }): GameConfig {
   const { container, debug } = options;
   return {
     containerNode: container,
