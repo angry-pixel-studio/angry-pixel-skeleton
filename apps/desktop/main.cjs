@@ -24,6 +24,7 @@ function createWindow() {
       devTools: false,
       webgl: true,
       contextIsolation: true,
+      autoplayPolicy: 'no-user-gesture-required',
     },
   });
 

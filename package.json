@@ -9,24 +9,27 @@
     "apps/*"
   ],
   "scripts": {
-    "lint": "eslint .",
-    "lint:fix": "eslint . --fix",
-    "format": "prettier --write \"packages/*/src/**/*.ts\" \"apps/browser/src/**/*.ts\" \"apps/mobile/**/*.ts\"",
-    "format:check": "prettier --check \"packages/*/src/**/*.ts\" \"apps/browser/src/**/*.ts\" \"apps/mobile/**/*.ts\"",
-    "build": "npm run build -w @angry-pixel-app/game && npm run build -w @angry-pixel-app/browser",
-    "build:desktop": "npm run build -w @angry-pixel-app/game && npm run build -w @angry-pixel-app/browser && npm run build -w @angry-pixel-app/desktop",
     "dev:browser": "npm run dev -w @angry-pixel-app/browser",
     "dev:desktop": "npm run dev -w @angry-pixel-app/desktop",
     "dev:mobile": "npm run start -w @angry-pixel-app/mobile",
+    "build:browser": "npm run build -w @angry-pixel-app/game && npm run build -w @angry-pixel-app/browser",
+    "build:desktop": "npm run build -w @angry-pixel-app/game && npm run build -w @angry-pixel-app/browser && npm run build -w @angry-pixel-app/desktop",
     "build:android": "npm run bundle:web-for-mobile && npm run eas:build:android -w @angry-pixel-app/mobile",
     "bundle:web-for-mobile": "node apps/mobile/scripts/bundle-web-dist.mjs",
-    "sync-desktop-icon": "cp apps/mobile/assets/icon.png apps/desktop/build/icon.png"
+    "sync-desktop-icon": "cp apps/mobile/assets/icon.png apps/desktop/build/icon.png",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write \"packages/*/src/**/*.ts\" \"apps/browser/src/**/*.ts\" \"apps/mobile/**/*.ts\"",
+    "format:check": "prettier --check \"packages/*/src/**/*.ts\" \"apps/browser/src/**/*.ts\" \"apps/mobile/**/*.ts\""
   },
   "devDependencies": {
     "@eslint/js": "^9.28.0",
     "eslint": "^9.28.0",
     "prettier": "^3.5.3",
-    "typescript": "~5.7.2",
+    "typescript": "~6.0.3",
     "typescript-eslint": "^8.33.0"
+  },
+  "dependencies": {
+    "angry-pixel": "^2.3.0"
   }
 }

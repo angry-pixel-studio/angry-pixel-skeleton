@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "Angry Pixel (WebView)",
-    "slug": "angry-pixel-app",
+    "name": "App Name",
+    "slug": "app-name",
     "version": "1.0.0",
     "orientation": "default",
     "icon": "./assets/icon.png",
@@ -13,7 +13,7 @@
       "backgroundColor": "#000000"
     },
     "ios": {
-      "bundleIdentifier": "com.angrypixel.multiplatform",
+      "bundleIdentifier": "com.studioname.appname",
       "supportsTablet": true,
       "infoPlist": {
         "NSAppTransportSecurity": {
@@ -23,7 +23,7 @@
       }
     },
     "android": {
-      "package": "com.angrypixel.multiplatform",
+      "package": "com.studioname.appname",
       "adaptiveIcon": {
         "foregroundImage": "./assets/icon.png",
         "backgroundColor": "#000000"
@@ -37,10 +37,10 @@
     },
     "extra": {
       "eas": {
-        "projectId": "a694f470-942a-4a6b-9e4d-bc11c838c4c4"
+        "projectId": "expo-project-id"
       }
     },
-    "owner": "maurocristy",
+    "owner": "username",
     "plugins": ["expo-asset"]
   }
 }

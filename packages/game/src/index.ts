@@ -1,6 +1,10 @@
-export { startGame, type StartGameOptions } from './bootstrap';
-export { createGameConfig, type GameDebugOptions } from './config/gameConfig';
-export { MainScene } from './scene/MainScene';
-export { ASSETS, type Assets } from './config/assets';
-export { RENDER_LAYERS, COLLISION_LAYERS, type Layers } from './config/layers';
-export { COLLISION_MATRIX } from './config/collisionMatrix';
+import { Game } from 'angry-pixel';
+import { createGameConfig } from './config/gameConfig';
+import { MainScene } from './scene/MainScene';
+
+export function startGame(container: HTMLElement, debug: boolean): Game {
+  const game = new Game(createGameConfig({ container, debug }));
+  game.addScene(MainScene, 'MainScene', true);
+  game.start();
+  return game;
+}

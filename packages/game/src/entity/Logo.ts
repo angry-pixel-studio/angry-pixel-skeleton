@@ -6,8 +6,8 @@ import { MoveAndBounce } from '@component/MoveAndBounce';
 export const logo = [
   Transform,
   new SpriteRenderer({
-    layer: RENDER_LAYERS.Logo,
-    image: ASSETS.images.logo,
+    layer: RENDER_LAYERS.Main,
+    image: ASSETS.images.angryPixel,
   }),
   MoveAndBounce,
 ];
