@@ -1,5 +1,5 @@
 {
-  "name": "@angry-pixel-app/desktop",
+  "name": "@angry-pixel-skeleton/desktop",
   "private": true,
   "version": "0.0.0",
   "description": "Electron shell for Angry Pixel multiplatform skeleton",

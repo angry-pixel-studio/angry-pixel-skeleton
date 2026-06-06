@@ -6,12 +6,12 @@ A starter template for building a game with the [Angry Pixel Engine](https://ang
 
 It's an [npm workspaces](https://docs.npmjs.com/cli/using-npm/workspaces) monorepo — one repository holding several packages that are developed together:
 
-| Package | Path | Role |
-| --- | --- | --- |
-| `@angry-pixel-app/game` | `packages/game` | Your game code (scenes, entities, components, systems). The single source of truth. |
-| `@angry-pixel-app/browser` | `apps/browser` | [Vite](https://vite.dev) web app. Imports the game package and runs it in the browser. This is also the build consumed by the other targets. |
-| `@angry-pixel-app/desktop` | `apps/desktop` | Electron shell that loads the browser app. |
-| `@angry-pixel-app/mobile` | `apps/mobile` | Expo app that renders the browser app inside a native WebView. |
+| Package                         | Path            | Role                                                                                                                                         |
+| ------------------------------- | --------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| `@angry-pixel-skeleton/game`    | `packages/game` | Your game code (scenes, entities, components, systems). The single source of truth.                                                          |
+| `@angry-pixel-skeleton/browser` | `apps/browser`  | [Vite](https://vite.dev) web app. Imports the game package and runs it in the browser. This is also the build consumed by the other targets. |
+| `@angry-pixel-skeleton/desktop` | `apps/desktop`  | Electron shell that loads the browser app.                                                                                                   |
+| `@angry-pixel-skeleton/mobile`  | `apps/mobile`   | Expo app that renders the browser app inside a native WebView.                                                                               |
 
 Desktop and mobile don't re-implement the game; they wrap the browser build. You write gameplay once in `packages/game`.
 
@@ -33,7 +33,7 @@ npm install
 ### Browser
 
 ```bash
-npm run dev:browser
+npm run dev
 ```
 
 Starts the Vite dev server at `http://localhost:3000` with hot reload.
@@ -43,7 +43,7 @@ Starts the Vite dev server at `http://localhost:3000` with hot reload.
 The desktop shell loads the browser dev server, so run the browser first in one terminal:
 
 ```bash
-npm run dev:browser
+npm run dev
 ```
 
 Then, in a second terminal:
@@ -59,7 +59,7 @@ The mobile app loads the browser dev server through a WebView. From a physical d
 1. Start the browser dev server:
 
    ```bash
-   npm run dev:browser
+   npm run dev
    ```
 
 2. Create `apps/mobile/.env` (git-ignored) pointing at your machine's LAN IP:
@@ -83,7 +83,7 @@ The mobile app loads the browser dev server through a WebView. From a physical d
 ### Browser
 
 ```bash
-npm run build:browser
+npm run build
 ```
 
 Outputs a static site to `apps/browser/dist`.
@@ -107,7 +107,7 @@ Builds run on [EAS Build](https://docs.expo.dev/build/introduction/) and embed t
    npm run build:android
    ```
 
-   This bundles the browser build into the mobile app and starts the EAS Android build (`preview` profile → APK). For a store-ready bundle use the `production` profile via `npm run eas:build:android:production -w @angry-pixel-app/mobile`.
+   This bundles the browser build into the mobile app and starts the EAS Android build (`preview` profile → APK). For a store-ready bundle use the `production` profile via `npm run eas:build:android:production -w @angry-pixel-skeleton/mobile`.
 
 ### iOS
 

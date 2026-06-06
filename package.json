@@ -1,5 +1,5 @@
 {
-  "name": "angry-pixel-app-skeleton",
+  "name": "angry-pixel-skeleton",
   "private": true,
   "version": "0.0.0",
   "description": "Multiplatform Angry Pixel Engine monorepo (browser, desktop, mobile)",
@@ -9,12 +9,12 @@
     "apps/*"
   ],
   "scripts": {
-    "dev:browser": "npm run dev -w @angry-pixel-app/browser",
-    "dev:desktop": "npm run dev -w @angry-pixel-app/desktop",
-    "dev:mobile": "npm run start -w @angry-pixel-app/mobile",
-    "build:browser": "npm run build -w @angry-pixel-app/game && npm run build -w @angry-pixel-app/browser",
-    "build:desktop": "npm run build -w @angry-pixel-app/game && npm run build -w @angry-pixel-app/browser && npm run build -w @angry-pixel-app/desktop",
-    "build:android": "npm run bundle:web-for-mobile && npm run eas:build:android -w @angry-pixel-app/mobile",
+    "dev": "npm run dev -w @angry-pixel-skeleton/browser",
+    "dev:desktop": "npm run dev -w @angry-pixel-skeleton/desktop",
+    "dev:mobile": "npm run start -w @angry-pixel-skeleton/mobile",
+    "build": "npm run build -w @angry-pixel-skeleton/game && npm run build -w @angry-pixel-skeleton/browser",
+    "build:desktop": "npm run build -w @angry-pixel-skeleton/game && npm run build -w @angry-pixel-skeleton/browser && npm run build -w @angry-pixel-skeleton/desktop",
+    "build:android": "npm run bundle:web-for-mobile && npm run eas:build:android -w @angry-pixel-skeleton/mobile",
     "bundle:web-for-mobile": "node apps/mobile/scripts/bundle-web-dist.mjs",
     "sync-desktop-icon": "cp apps/mobile/assets/icon.png apps/desktop/build/icon.png",
     "lint": "eslint .",

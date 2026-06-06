@@ -1,5 +1,5 @@
 import './style.css';
-import { startGame } from '@angry-pixel-app/game';
+import { startGame } from '@angry-pixel-skeleton/game';
 
 const params = new URLSearchParams(window.location.search);
 const debug = Boolean(Number(params.get('debug')));

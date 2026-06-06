@@ -1,5 +1,5 @@
 {
-  "name": "@angry-pixel-app/browser",
+  "name": "@angry-pixel-skeleton/browser",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -9,7 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@angry-pixel-app/game": "*"
+    "@angry-pixel-skeleton/game": "*"
   },
   "devDependencies": {
     "@types/node": "^22.10.2",
