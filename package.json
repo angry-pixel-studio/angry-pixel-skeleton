@@ -30,6 +30,6 @@
     "typescript-eslint": "^8.33.0"
   },
   "dependencies": {
-    "angry-pixel": "^2.3.0"
+    "angry-pixel": "^2.3.1"
   }
 }

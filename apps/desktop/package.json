@@ -11,7 +11,7 @@
     "build": "electron-builder"
   },
   "build": {
-    "electronVersion": "35.7.5",
+    "electronVersion": "42.3.3",
     "appId": "com.angrypixel.multiplatform.skeleton",
     "productName": "AngryPixelSkeleton",
     "directories": {
@@ -48,7 +48,7 @@
     }
   },
   "devDependencies": {
-    "electron": "^35.0.0",
+    "electron": "^42.0.0",
     "electron-builder": "^26.0.0"
   }
 }
