@@ -15,11 +15,9 @@ export class MainScene extends Scene {
     Object.values(ASSETS.video).forEach((filename) => this.assetManager.loadVideo(filename as string));
   }
 
-  registerSystems(): void {
-    this.addSystem(MoveAndBounceSystem);
-  }
+  setup(): void {
+    this.systems = [MoveAndBounceSystem];
 
-  createEntities(): void {
     this.entityManager.createEntity(camera);
     this.entityManager.createEntity(logo);
   }

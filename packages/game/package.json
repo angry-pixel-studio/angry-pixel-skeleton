@@ -13,6 +13,6 @@
     "typescript": "~5.7.2"
   },
   "dependencies": {
-    "angry-pixel": "^2.2.0"
+    "angry-pixel": "^2.4.2"
   }
 }
