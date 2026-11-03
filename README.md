@@ -134,7 +134,7 @@ Notes:
 - **Windows** builds a portable `.exe`: a single file players run directly, with no installation. The portable build works from macOS or Linux. If you switch to another Windows target, some need [Wine](https://www.winehq.org) on those systems (`brew install --cask wine-stable` on macOS) or the [electron-builder Docker image](https://www.electron.build/multi-platform-build). Without signing, Windows SmartScreen will warn players before the app opens.
 - **Linux** builds work from macOS or Linux.
 - **CPU architecture:** Windows and Linux builds are always `x64`, which is what most PCs use (set by `--x64` in the `build:win` and `build:linux` scripts in `apps/desktop/package.json`). macOS builds match the Mac you build on, so an Apple Silicon Mac produces `arm64`.
-- The app icon is `apps/desktop/build/icon.png` and must be at least **512×512** pixels.
+- The app icon is `apps/desktop/build/icon.png`, set for each platform by `build.mac.icon`, `build.win.icon` and `build.linux.icon` in `apps/desktop/package.json`. Use a square PNG of **1024×1024** pixels (macOS requires at least 512×512).
 
 ### Android
 

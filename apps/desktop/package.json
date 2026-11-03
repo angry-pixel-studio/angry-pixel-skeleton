@@ -19,7 +19,6 @@
     "directories": {
       "output": "out"
     },
-    "icon": "build/icon.png",
     "files": [
       "main.cjs",
       "package.json",
@@ -36,18 +35,21 @@
       "category": "public.app-category.games",
       "target": [
         "dmg"
-      ]
+      ],
+      "icon": "build/icon.png"
     },
     "win": {
       "target": [
         "portable"
-      ]
+      ],
+      "icon": "build/icon.png"
     },
     "linux": {
       "executableName": "angry-pixel-skeleton",
       "target": [
         "AppImage"
-      ]
+      ],
+      "icon": "build/icon.png"
     }
   },
   "devDependencies": {

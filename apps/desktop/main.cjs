@@ -4,7 +4,7 @@ const path = require('path');
 
 const VITE_DEV_URL = 'http://localhost:3000';
 
-/** Same file used by electron-builder (`build.icon` in package.json) for the .app / installer icon. */
+/** Same file used by electron-builder (`build.mac.icon`, `build.win.icon`, `build.linux.icon` in package.json) for the app icon. */
 function getIconPath() {
   return path.join(__dirname, 'build', 'icon.png');
 }
