@@ -52,6 +52,36 @@ Then, in a second terminal:
 npm run dev:desktop
 ```
 
+#### Window size and mode
+
+The Electron window is configured in `apps/desktop/main.cjs`, inside `createWindow()`. By default the dev app opens as a fixed **1920×1080 window**, and the packaged app opens **fullscreen**:
+
+```js
+const isDev = !app.isPackaged;
+
+const win = new BrowserWindow({
+  fullscreen: !isDev, // fullscreen only in the packaged app
+  resizable: false,
+  width: 1920,
+  height: 1080,
+  useContentSize: true, // width/height are the game area, excluding the title bar
+  center: true,
+  // ...
+});
+
+// ...
+
+if (!isDev) {
+  win.maximize();
+}
+```
+
+- **Resolution:** change `width` and `height`. With `useContentSize: true` they set the size of the page the game draws into. Set it to `false` if you want them to include the window frame and title bar instead.
+- **Windowed or fullscreen:** `fullscreen` controls the mode. Use `fullscreen: true` to always run fullscreen, or `fullscreen: false` together with removing the `win.maximize()` call to always run windowed, including in the packaged app.
+- **Resizable window:** set `resizable: true` to let the player resize the window.
+
+The window size is separate from the game's own resolution, which is set by `width` and `height` in `packages/game/src/config/gameConfig.ts`. The game is scaled to fit the window at a 16:9 aspect ratio (set by `#app` in `apps/browser/src/style.css`), so a window with a different aspect ratio shows black bars. If you change the game's aspect ratio, update the `16/9` and `9/16` values there too.
+
 ### Mobile
 
 The mobile app loads the browser dev server through a WebView. From a physical device, `localhost` points at the phone itself, so you must use your computer's local network address.
@@ -90,11 +120,21 @@ Outputs a static site to `apps/browser/dist`.
 
 ### Desktop
 
-```bash
-npm run build:desktop
-```
+Each script builds the browser app and packages it with [electron-builder](https://www.electron.build) for one platform. Installers are written to `apps/desktop/out`.
 
-Builds the browser app and packages it with [electron-builder](https://www.electron.build). Installers are written to `apps/desktop/out` (`.dmg` on macOS, NSIS on Windows, AppImage on Linux).
+| Command                       | Platform | Output                                    |
+| ----------------------------- | -------- | ----------------------------------------- |
+| `npm run build:desktop:mac`   | macOS    | `.dmg`                                    |
+| `npm run build:desktop:win`   | Windows  | Portable `.exe` (runs without installing) |
+| `npm run build:desktop:linux` | Linux    | `.AppImage`                               |
+
+Notes:
+
+- **macOS** builds only work on a Mac. Without an Apple Developer ID certificate the app is unsigned, and other Macs will warn before opening it. See [code signing](https://www.electron.build/code-signing).
+- **Windows** builds a portable `.exe`: a single file players run directly, with no installation. The portable build works from macOS or Linux. If you switch to another Windows target, some need [Wine](https://www.winehq.org) on those systems (`brew install --cask wine-stable` on macOS) or the [electron-builder Docker image](https://www.electron.build/multi-platform-build). Without signing, Windows SmartScreen will warn players before the app opens.
+- **Linux** builds work from macOS or Linux.
+- **CPU architecture:** Windows and Linux builds are always `x64`, which is what most PCs use (set by `--x64` in the `build:win` and `build:linux` scripts in `apps/desktop/package.json`). macOS builds match the Mac you build on, so an Apple Silicon Mac produces `arm64`.
+- The app icon is `apps/desktop/build/icon.png` and must be at least **512×512** pixels.
 
 ### Android
 

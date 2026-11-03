@@ -13,13 +13,19 @@ function createWindow() {
   const iconPath = getIconPath();
   const hasIcon = fs.existsSync(iconPath);
 
+  // Dev runs windowed at the game's native resolution; the packaged app runs fullscreen.
+  const isDev = !app.isPackaged;
+
   const win = new BrowserWindow({
-    fullscreen: true,
+    fullscreen: !isDev,
     resizable: false,
     // macOS ignores BrowserWindow.icon; Dock icon comes from the bundled app (electron-builder) or app.dock.setIcon in dev.
     ...(hasIcon && process.platform !== 'darwin' ? { icon: iconPath } : {}),
-    width: 1280,
-    height: 720,
+    width: 1920,
+    height: 1080,
+    // width/height apply to the web page area, not the outer frame with the title bar.
+    useContentSize: true,
+    center: true,
     webPreferences: {
       devTools: false,
       webgl: true,
@@ -40,7 +46,9 @@ function createWindow() {
     win.loadFile(indexHtml);
   }
 
-  win.maximize();
+  if (!isDev) {
+    win.maximize();
+  }
   win.setMenuBarVisibility(false);
 }
 
